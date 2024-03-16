@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "ishelter"
+version = "0.1.0"
+description = ""
+authors = ["Isaac Torres Espuña <isaac@ite2002.net>"]
+readme = "README.md"
+package-mode = false
+
+[tool.poetry.dependencies]
+python = "^3.12"
+django = "^5.0.3"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
