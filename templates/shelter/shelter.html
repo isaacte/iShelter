@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}{{ shelter.name }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <h1>{{ shelter.name }}'s Pets</h1>
+        <h4>Capacity: {{ shelter.pet_set.count }}/{{ shelter.capacity }}</h4>
+        <h4>Address: {{ shelter.address }}</h4>
+        <div class="container mt-5">
+            <h2>Cats</h2>
+            <div class="row">
+                {% for cat in cats %}
+                    <div class="col-12 col-md-6 col-xl-4 d-flex justify-content-center" style="cursor: pointer;" onclick="location.href='{% url 'pet_view' pet_id=cat.id %}'">
+                        <div class="card m-2" style="width: 18rem;">
+                            {% if cat.main_photo %}
+                                <img src="{{ cat.main_photo.photo.url }}" class="card-img-top" alt="{{ cat.name }}">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ cat.name }} - {{ cat.breed.name }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="container mt-5">
+            <h2>Dogs</h2>
+            <div class="row">
+                {% for dog in dogs %}
+                    <div class="col-12 col-md-4 d-flex justify-content-center" style="cursor: pointer;" onclick="location.href='{% url 'pet_view' pet_id=dog.id %}'">
+                        <div class="card m-2" style="width: 18rem;">
+                            {% if dog.main_photo %}
+                                <img src="{{ dog.main_photo.photo.url }}" class="card-img-top" alt="{{ dog.name }}">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ dog.name }} - {{ dog.breed.name }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    <div class="container mt-5">
+            <h2>Furies</h2>
+            <div class="row">
+                {% for fury in furies %}
+                    <div class="col-12 col-md-4 d-flex justify-content-center" style="cursor: pointer;" onclick="location.href='{% url 'pet_view' pet_id=fury.id %}'">
+                        <div class="card m-2" style="width: 18rem;">
+                            {% if fury.main_photo %}
+                                <img src="{{ fury.main_photo.photo.url }}" class="card-img-top" alt="{{ fury.name }}">
+                            {% endif %}
+                            <div class="card-body">
+                                <h5 class="card-title">{{ fury.name }}</h5>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

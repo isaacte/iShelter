@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %}{{ shelter.name }}{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="container mt-5">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner">
+                            {% if pet.main_photo %}
+                                <div class="carousel-item active">
+                                    <img class="d-block w-100" style="height: 50vh; object-fit: cover"
+                                         src="{{ pet.main_photo.photo.url }}" alt="Pet photo">
+                                </div>
+                            {% endif %}
+                            {% for photo in pet.secondary_photos %}
+                                <div class="carousel-item">
+                                    <img class="d-block w-100 {% if forloop.first and not pet.main_photo %}active{% endif %}"
+                                         style="height: 50vh; object-fit: cover" src="{{ photo.photo.url }}"
+                                         alt="Pet photo">
+                                </div>
+                            {% endfor %}
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button"
+                           data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button"
+                           data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6">
+                    <h1>{{ pet.name }}</h1>
+                    <h5>{{ pet.cast.breed.name }}</h5>
+                    <h5>Age: {{ pet.age }}</h5>
+                    <h5>Sex: {{ pet.get_sex_display }}</h5>
+                    <h5>{{ pet.shelter.name }}</h5>
+                    <br>
+                    <p>{{ pet.description }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
