@@ -1,7 +1,12 @@
 {% extends 'base.html' %}
 {% block title %}{{ pet.name }}{% endblock %}
 
+
 {% block content %}
+    <div class="jumbotron text-center bg-light" style="background-image: url('media/cover.png'); background-size: cover; background-position: top;">
+  <h1>iShelter</h1>
+  <p>Save an animal, save a life.</p>
+</div>
     <div class="container">
         <div class="container mt-5">
             <div class="row">
@@ -35,11 +40,11 @@
                     </div>
                 </div>
                 <div class="col-12 col-md-6">
-                    <h1>{{ pet.name }}</h1>
-                    <h5>{{ pet.cast.breed.name }}</h5>
-                    <h5>Age: {{ pet.age }}</h5>
-                    <h5>Sex: {{ pet.get_sex_display }}</h5>
-                    <h5>{{ pet.shelter.name }}</h5>
+                    <h1 style="font-family: Dubai,serif">{{ pet.name }}</h1>
+                    <h5 style="font-family: Dubai,serif">{{ pet.cast.breed.name }}</h5>
+                    <h5 style="font-family: Dubai,serif">Age: {{ pet.age }}</h5>
+                    <h5 style="font-family: Dubai,serif">Sex: {{ pet.get_sex_display }}</h5>
+                    <h5 style="font-family: Dubai,serif">{{ pet.shelter.name }}</h5>
                     <br>
                     <p>{{ pet.description }}</p>
                 </div>
