@@ -1,0 +1,24 @@
+.navbar-brand {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  font-style: italic;
+  color: blue;
+  text-decoration: underline; /* Optional */
+  letter-spacing: 2px; /* Optional */
+  line-height: 1.5; /* Optional */
+}
+.bg-bb{
+  background-color: #9fcdff;
+}
+.custom-container{
+  padding: 20px;
+  background-color: #80bdff;
+}
+
+.custom-title{
+  font-size: 30px;
+    color: #cb1515; /* Darker gray */
+    font-family: Arial, sans-serif;
+    text-shadow: 1px 1px 2px rgba(196, 81, 81, 0.2); /* Subtle shadow */
+}
