@@ -2,10 +2,11 @@
 {% block title %}{{ shelter.name }}{% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="jumbotron text-center bg-light">
         <h1>{{ shelter.name }}'s Pets</h1>
         <h4>Capacity: {{ shelter.pet_set.count }}/{{ shelter.capacity }}</h4>
         <h4>Address: {{ shelter.address }}</h4>
+    </div>
         <div class="container mt-5">
             <h2>Cats</h2>
             <div class="row">
